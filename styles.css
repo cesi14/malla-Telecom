@@ -1,53 +1,101 @@
 body {
-  background-color: #f5f5dc; /* beige */
-  font-family: 'Segoe UI', sans-serif;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5dc;
   color: black;
   padding: 20px;
+  margin: 0;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 h1 {
-  text-align: center;
-  color: #5a3e36; /* marrón */
+  margin-bottom: 10px;
+  color: #5a3e36;
 }
 
-.semestres {
+.leyenda {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
+  margin-bottom: 20px;
 }
 
-.ramo {
-  border: 2px solid #5a3e36;
+.leyenda-item {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.color-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  display: inline-block;
+  border: 1px solid #333;
+}
+
+.color-box.bloqueado { background-color: #d3d3d3; }
+.color-box.habilitado { background-color: #b2ebf2; }
+.color-box.aprobado { background-color: #c8e6c9; }
+
+#malla {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.semestre-box {
+  background-color: #fff9f0;
+  border: 2px solid #8b6b4d;
   border-radius: 10px;
-  padding: 10px;
-  width: 220px;
-  text-align: center;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.ramo:disabled {
-  cursor: not-allowed;
-}
-
-.estado-bloqueado {
-  background-color: #d3d3d3; /* gris claro */
-}
-
-.estado-habilitado {
-  background-color: #b2ebf2; /* celeste */
-}
-
-.estado-aprobado {
-  background-color: #c8e6c9; /* verde claro */
+  padding: 15px;
+  width: 90%;
+  max-width: 700px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
 }
 
 .semestre-titulo {
-  flex-basis: 100%;
   text-align: center;
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-top: 20px;
+  font-size: 18px;
+  margin-bottom: 10px;
   color: #5a3e36;
+  font-weight: bold;
+}
+
+.semestre-contenido {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.ramo {
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #5a3e36;
+  width: 200px;
+  text-align: center;
+  cursor: not-allowed;
+  background-color: lightgray;
+  transition: background-color 0.3s ease;
+}
+
+.ramo.estado-habilitado {
+  background-color: #b2ebf2;
+  cursor: pointer;
+}
+
+.ramo.estado-aprobado {
+  background-color: #c8e6c9;
+  cursor: default;
+}
+
+.ramo:hover {
+  filter: brightness(95%);
 }
