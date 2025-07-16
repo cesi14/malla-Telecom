@@ -1,4 +1,3 @@
-// script.js con localStorage
 const malla = {
   "1": [
     "Fundamentos de Matemáticas",
@@ -114,10 +113,16 @@ function actualizarMalla() {
 const container = document.getElementById("malla");
 
 for (let semestre in malla) {
+  const box = document.createElement("div");
+  box.className = "semestre-box";
+
   const titulo = document.createElement("div");
   titulo.textContent = `Semestre ${semestre}`;
   titulo.className = "semestre-titulo";
-  container.appendChild(titulo);
+  box.appendChild(titulo);
+
+  const contenido = document.createElement("div");
+  contenido.className = "semestre-contenido";
 
   for (let ramoData of malla[semestre]) {
     let nombre, requisitos = [];
@@ -129,8 +134,11 @@ for (let semestre in malla) {
 
     const ramoObj = crearRamo(nombre, requisitos);
     botones.push(ramoObj);
-    container.appendChild(ramoObj.btn);
+    contenido.appendChild(ramoObj.btn);
   }
+
+  box.appendChild(contenido);
+  container.appendChild(box);
 }
 
 actualizarMalla();
